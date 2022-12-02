@@ -25,16 +25,14 @@ function isValid($email, $password)
     if (count($errors) == 0) { // checks if no errors
         // check if no user has has same details(email)
         $results = ValidateCredentials_ctr($email, $password);
-        echo gettype($results);
-        if ($results == false) return array_push($errors, "User email Exist!");
+        if ($results == false) return array_push($errors, "Credentials not valid!");
         // if no errors then create Session & login
-        if ($results) {
-            $_SESSION['cid'] = $results['customer_id'];
-            $_SESSION['success'] = "You are now logged in";
-            $_SESSION['role'] = $results['user_role'];
-            $_SESSION['name'] = $results['customer_name'];
-            header('location: ../view/products.php');
-        }
+        echo "hello";
+        $_SESSION['cid'] = $results['customer_id'];
+        $_SESSION['success'] = "You are now logged in";
+        $_SESSION['role'] = $results['user_role'];
+        $_SESSION['name'] = $results['customer_name'];
+        header('location: ../view/products.php');
     }
 }
 

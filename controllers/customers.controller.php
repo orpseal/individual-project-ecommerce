@@ -49,10 +49,15 @@ function ValidateCredentials_ctr($email, $password)
 
     $selectonecustomer = new customer_class();
     $response = $selectonecustomer->customer_login_cls($email);
+    if ($response == false) {
+        return $response;
+    }
     $hashedPassword = $response['customer_pass'];
-    if (!password_verify($password, $hashedPassword))
-        return false;
-    return $response;
+    echo $hashedPassword;
+    if (password_verify($password, $hashedPassword)) {
+        return $response;
+    }
+    return false;
 }
 function UserExist_ctr($email)
 {

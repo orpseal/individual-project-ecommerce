@@ -1,18 +1,21 @@
 <?php
 // include('../actions/signup.action.php');
 session_start();
-
+// $_SESSION = array();
 require("../controllers/products.controller.php");
-// if (!isset($_SESSION['cid'])) {
-//     $_SESSION['msg'] = "You must log in first";
-//     header('location: ../view/login.php');
-// }
+if (!isset($_SESSION['cid'])) {
+    $_SESSION['msg'] = "You must log in first";
+    header('location: ../view/login.php');
+}
 
-// if (isset($_GET['logout'])) {
-//     session_destroy();
-//     unset($_SESSION['cid']);
-//     header("location: ../view/login.php");
-// }
+if (isset($_GET['logout'])) {
+    // session_destroy();
+    unset($_SESSION['cid']);
+    unset($_SESSION['success']);
+    unset($_SESSION['role']);
+    unset($_SESSION['name']);
+    header("location: ../view/login.php");
+}
 
 
 ?>
@@ -59,13 +62,13 @@ require("../controllers/products.controller.php");
                     <li><a href="index.php">Home</a></li>
                     <li><a href="products.php">Products</a></li>
                     <li><a href="#">Contact</a></li>
-                    <?php if (isset($_SESSION['cid'])) : ?>
+                    <?php if (isset($_SESSION['name'])) : ?>
                         <li class="user-msg">
                             <strong>
                                 <?php echo $_SESSION['name']; ?>
                             </strong>
                         </li>
-                        <li><a href="login.php?logout='1'" style="color: red;">Logout</a></li><!-- this logout the admin -->
+                        <li><a href="products.php?logout='1'" style="color: red;">Logout</a></li><!-- this logout the admin -->
                     <?php endif ?>
                     <!-- <li><a href="login.php">Login</a></li> -->
                 </ul>
