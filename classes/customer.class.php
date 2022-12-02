@@ -41,10 +41,9 @@ class customer_class extends db_connection
 		return $this->db_fetch_one($sql);
 	}
 	/* checks if user credentials valid */
-	function customer_login_cls($email, $password)
+	function customer_login_cls($email)
 	{
-		$hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-		$sql = "SELECT * FROM customer WHERE customer_email ='{$email}' AND customer_pass = '{$hashedPassword}'";
+		$sql = "SELECT * FROM customer WHERE customer_email ='{$email}'";
 		return $this->db_fetch_one($sql);
 	}
 	//======

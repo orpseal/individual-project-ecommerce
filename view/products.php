@@ -1,5 +1,6 @@
 <?php
 // include('../actions/signup.action.php');
+session_start();
 
 require("../controllers/products.controller.php");
 // if (!isset($_SESSION['cid'])) {
@@ -61,7 +62,7 @@ require("../controllers/products.controller.php");
                     <?php if (isset($_SESSION['cid'])) : ?>
                         <li class="user-msg">
                             <strong>
-                                <?php echo $_SESSION['cid']; ?>
+                                <?php echo $_SESSION['name']; ?>
                             </strong>
                         </li>
                         <li><a href="login.php?logout='1'" style="color: red;">Logout</a></li><!-- this logout the admin -->

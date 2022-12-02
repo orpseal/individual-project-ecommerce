@@ -1,6 +1,5 @@
 <?php
 //make the controller aware of the existence of the class
-
 require("../classes/products.class.php");
 
 

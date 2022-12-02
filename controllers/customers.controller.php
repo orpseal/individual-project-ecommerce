@@ -46,8 +46,13 @@ function editcustomer_ctr($customer_id, $customer_name, $customer_email, $custom
 // nird
 function ValidateCredentials_ctr($email, $password)
 {
+
     $selectonecustomer = new customer_class();
-    return $selectonecustomer->customer_login_cls($email, $password);
+    $response = $selectonecustomer->customer_login_cls($email);
+    $hashedPassword = $response['customer_pass'];
+    if (!password_verify($password, $hashedPassword))
+        return false;
+    return $response;
 }
 function UserExist_ctr($email)
 {
