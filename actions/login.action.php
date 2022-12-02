@@ -8,9 +8,7 @@ try {
     if (isset($_POST['user_login'])) {
         $email = $_POST['customer_email'];
         $password = $_POST['customer_pass'];
-        $results = isValid($email, $password);
-        if ($results) header('location: ../view/products.php');
-        // debugging
+        isValid($email, $password);
     }
 } catch (\Throwable $th) {
     //throw $th;
@@ -33,11 +31,12 @@ function isValid($email, $password)
         $results = ValidateCredentials_ctr($email, $password);
         if ($results == false) return array_push($errors, "User email Exist!");
         // if no errors then create Session & login
-        echo $results;
         if ($results) {
             $_SESSION['cid'] = $results['customer_id'];
+            $_SESSION['success'] = "You are now logged in";
             $_SESSION['role'] = $results['user_role'];
             $_SESSION['name'] = $results['customer_name'];
+            header('location: ../view/products.php');
         }
     }
 }

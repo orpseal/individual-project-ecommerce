@@ -1,5 +1,6 @@
 <?php
 // include('../actions/signup.action.php');
+
 require("../controllers/products.controller.php");
 // if (!isset($_SESSION['cid'])) {
 //     $_SESSION['msg'] = "You must log in first";
