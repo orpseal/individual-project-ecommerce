@@ -54,7 +54,6 @@ class db_connection
 			return false;
 		}else{
 			return true;
-			
 		}
 	}
 
