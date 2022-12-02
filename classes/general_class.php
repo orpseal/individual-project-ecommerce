@@ -24,9 +24,6 @@ class contact_class extends db_connection
 
 		//exceutes query
 		return $this->db_query($sqlQuery);
-		
-		
-	
 	}
 	
 

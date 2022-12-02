@@ -98,7 +98,6 @@ class db_connection
 	*@return all record
 	**/
 	function db_fetch_all($sql){
-		
 		// if executing query returns false
 		if(!$this->db_query($sql)){
 			return false;

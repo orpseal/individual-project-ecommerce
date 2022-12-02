@@ -5,26 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products - Arctic Books</title>
-
     <link rel="stylesheet" href="../css/style.css">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
 </head>
 <body>
-
 <!-- ---------------header and navbar ---------------- -->
-
     <div class="container">
         <div class="navbar">
             <div class="logo">
                 <a href="index.php"><img src="../images/newlogo-new.svg" width = "125px"></a>
             </div>
-
             <nav>
                 <ul id="MenuItems">
                     <li><a href="index.php">Home</a></li>
@@ -36,18 +29,14 @@
             <a href="cart.php"><img src="../images/cart.png" width = "30px" height="25px";></a>
             <img src="../images/menu.jpeg" class="menu-icon" onclick="menutoggle()">
         </div>
-    
     </div>
-
 <!-- -------------------login page------------------ -->
-
 <div class="account-page">
     <div class="container">
         <div class="row">
             <div class="col-2">
                 <img src="../images/bg-3osize.jpg" width="100%">
             </div>
-
             <div class="col-2">
                 <div class="form-container">
                   <div class="form-btn">
@@ -55,21 +44,19 @@
                     <span onclick="register()">Register</span>
                     <hr id="Indicator">
                   </div>
-
-                  <form action="" id="LoginForm">
-                    <input type="text" placeholder="Email">
-                    <input type="password" placeholder="Password">
+                  <form action="../actions/login.action.php" id="LoginForm">
+                    <input type="text" name="customer_email" placeholder="Email" required>
+                    <input type="password" name="customer_pass" placeholder="Password" required>
                     <button type="submit" class="btn">Login</button>
                     <a href="">Forgot password</a>
                   </form>
-
                   <form action="" id="RegForm">
-                    <input type="text" placeholder="Name">
-                    <input type="text" placeholder="Email">
-                    <input type="password" placeholder="Password">  
-                    <input type="text" placeholder="Country"> 
-                    <input type="text" placeholder="City">                
-                    <input type="text" placeholder="Contact">
+                    <input type="text" placeholder="Name" required>
+                    <input type="text" placeholder="Email" required>
+                    <input type="password" placeholder="Password" required>  
+                    <input type="text" placeholder="Country" required> 
+                    <input type="text" placeholder="City" required>                
+                    <input type="text" placeholder="Contact" required>
                     <button type="submit" class="btn">Register</button>
                   </form>
                 </div>
@@ -77,9 +64,7 @@
         </div>
     </div>
 </div>
-
 <!-- ----------------footer---------------- -->
-
 <div class="footer">
     <div class="container">
         <div class="row">
@@ -91,12 +76,10 @@
                     <img src="../images/appstore.png">
                 </div>
             </div>
-
             <div class="footer-col-2">
                 <img src="../images/newlogo-black.png">
                 <p>Our Purpose Is To Sustainably Make the Pleasure and Benefits of Reading Accessible to Everyone</p>
             </div>
-
             <div class="footer-col-3">
                 <h3>Useful Links</h3>
                 <ul>
@@ -106,7 +89,6 @@
                     <li>Return Policy</li>
                 </ul>
             </div>
-
             <div class="footer-col-4">
                 <h3>Follow Us</h3>
                 <ul>
@@ -144,9 +126,10 @@
 <!-- ---------Form toggle js------ -->
 
 <script>
-  var LoginForm = document.getElementById("LoginForm");
-  var RegForm = document.getElementById("RegForm");
-  var Indicator = document.getElementById("Indicator");
+
+    var LoginForm = document.getElementById("LoginForm");
+    var RegForm = document.getElementById("RegForm");
+    var Indicator = document.getElementById("Indicator");
 
     function register(){
       RegForm.style.transform = "translateX(0px)";
@@ -160,7 +143,6 @@
       Indicator.style.transform = "translateX(0px)";
     }
   
-
 </script>
 
 </body>
