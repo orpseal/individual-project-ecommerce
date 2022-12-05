@@ -5,7 +5,7 @@ session_start();
 require("../controllers/products.controller.php");
 if (!isset($_SESSION['cid'])) {
     $_SESSION['msg'] = "You must log in first";
-    header('location: ../view/login.php');
+    header('location: login.php');
 }
 
 if (isset($_GET['logout'])) {
@@ -14,7 +14,7 @@ if (isset($_GET['logout'])) {
     unset($_SESSION['success']);
     unset($_SESSION['role']);
     unset($_SESSION['name']);
-    header("location: ../view/login.php");
+    header("location: login.php");
 }
 
 

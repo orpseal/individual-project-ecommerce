@@ -1,4 +1,14 @@
-<?php include('../actions/signup.action.php'); ?>
+<?php
+include('../actions/signup.action.php');
+// on login screen, redirect to dashboard if already logged in
+if (isset($_SESSION['name'])) {
+    header('location: products.php');
+}
+
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
