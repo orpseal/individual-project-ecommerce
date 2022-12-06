@@ -18,6 +18,7 @@ if (isset($_SESSION['name'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login / Register - Arctic Books</title>
     <link rel="stylesheet" href="../css/style.css">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -51,7 +52,7 @@ if (isset($_SESSION['name'])) {
                     <img src="../images/bg-3osize.jpg" width="100%">
                 </div>
                 <div class="col-2">
-                    <div class="form-container">
+                    <div class="form-container" style="height: 550px;">
                         <div class="form-btn">
                             <span onclick="login()">Login</span>
                             <span onclick="register()">Register</span>
