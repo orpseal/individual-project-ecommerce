@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-    <title>Modern Admin Dashboard</title>
+    <title>Add Product</title>
     <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="../css/adminform.css">
 
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
 
-    <style>
-        
-    </style>
+    
 </head>
 <body>
    <input type="checkbox" id="menu-toggle">
@@ -25,13 +24,13 @@
             <div class="side-menu">
                 <ul>
                     <li>
-                       <a href="index.php" class="active">
+                       <a href="index.php" >
                             <span class="las la-home"></span>
                             <small>Users</small>
                         </a>
                     </li>
                     <li>
-                       <a href="products.php">
+                       <a href="products.php" class="active">
                             <span class="las la-suitcase"></span>
                             <small>Products</small>
                         </a>
@@ -97,79 +96,46 @@
             </div>
         </header>
         
-        <!-----------  -->
+<!-------------------------------------page content----------------------------------->
         <main>
             
             <div class="page-header">
-                <h1>Users</h1>
-                <small>Home / Users</small>
+                <h1>Products</h1>
+                <small>Home / Products / Add Products</small>
             </div>
             
-            <div class="page-content">
+            <div class="container">
 
-                <div class="records table-responsive">
+                <div class="admin-product-form-container">
+                    <form action = "" method="">
+                        <h3>Add new product</h3>
+                        
+                        <input type="text" placeholder="enter product title" name="product_title" class="box">
 
-                    <div class="record-header">
+                        <br><br>
+                        <select name="product_brand">
+                            <option>Select Brand</option>
+                        </select>
 
-                        <div class="browse">
-                           <input type="search" placeholder="Search" class="record-search">
-                        </div>
-                    </div>
+                        <select name="product_category">
+                            <option>Select Category</option>
+                        </select>
 
-                    <div>
-                        <table width="100%">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th><span class="las la-sort"></span> NAME</th>
-                                    <th><span class="las la-sort"></span> EMAIL</th>
-                                    <th><span class="las la-sort"></span> COUNTRY</th>
-                                    <th><span class="las la-sort"></span> CITY</th>
-                                    <th><span class="las la-sort"></span> CONTACT</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>#5033</td>
+                        <br><br>
+                        <input type="text" placeholder="enter product price in GHC" name="product_price" class="box">
 
-                                    <td>
-                                        <div class="client">
-                                            <div class="client-info">
-                                                <h4>Andrew Bruno</h4>
-                                            </div>
-                                        </div>
-                                    </td>
+                        <br><br>
+                        <input type="text" placeholder="enter product keywords" name="product_keywords" class="box">
 
-                                    <td>
-                                        <div class="client-info">
-                                            <h4>andrew@gmail.com</h4>
-                                        </div>
-                                    </td>
+                        <br><br>
+                        <input type="text" placeholder="enter product description" name="product_desc" class="box">
+                        
+                        <br><br>
+                        <label>Select Product Image:</label>
+                        <input type="file"  name="product_image">
 
-                                    <td>
-                                        <div class="client-info">
-                                            <h4>Ghana</h4>
-                                        </div>
-                                    </td>
-
-                                    <td>
-                                        <div class="client-info">
-                                            <h4>Tema</h4>
-                                        </div>
-                                    </td>
-
-                                    <td>
-                                        <div class="client-info">
-                                            <h4>0550159324</h4>
-                                        </div>
-                                    </td>
-                                </tr>
-                                
-                                
-                            </tbody>
-                        </table>
-                    </div>
-
+                        <input type="submit" class="btn" name="submit" value="ADD">
+                    </form>
                 </div>
             
             </div>

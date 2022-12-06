@@ -25,13 +25,13 @@
             <div class="side-menu">
                 <ul>
                     <li>
-                       <a href="index.php" class="active">
+                       <a href="index.php" >
                             <span class="las la-home"></span>
                             <small>Users</small>
                         </a>
                     </li>
                     <li>
-                       <a href="products.php">
+                       <a href="products.php" class="active">
                             <span class="las la-suitcase"></span>
                             <small>Products</small>
                         </a>
@@ -101,8 +101,8 @@
         <main>
             
             <div class="page-header">
-                <h1>Users</h1>
-                <small>Home / Users</small>
+                <h1>Products</h1>
+                <small>Home / Products</small>
             </div>
             
             <div class="page-content">
@@ -110,6 +110,9 @@
                 <div class="records table-responsive">
 
                     <div class="record-header">
+                        <div class="add">
+                            <a href="addProduct.php" style="cursor: pointer;"><button>Add product</button></a>
+                        </div>
 
                         <div class="browse">
                            <input type="search" placeholder="Search" class="record-search">
@@ -121,11 +124,11 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th><span class="las la-sort"></span> NAME</th>
-                                    <th><span class="las la-sort"></span> EMAIL</th>
-                                    <th><span class="las la-sort"></span> COUNTRY</th>
-                                    <th><span class="las la-sort"></span> CITY</th>
-                                    <th><span class="las la-sort"></span> CONTACT</th>
+                                    <th><span class="las la-sort"></span> TITLE</th>
+                                    <th><span class="las la-sort"></span> BRAND</th>
+                                    <th><span class="las la-sort"></span> PRICE</th>
+                                    <th><span class="las la-sort"></span> IMAGE</th>
+                                    <th><span class="las la-sort"></span> ACTIONS</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -133,34 +136,29 @@
                                     <td>#5033</td>
 
                                     <td>
-                                        <div class="client">
-                                            <div class="client-info">
-                                                <h4>Andrew Bruno</h4>
-                                            </div>
-                                        </div>
+                                        <h4>A Little Life</h4>                                            
+                                    </td>
+
+                                    <td>                                       
+                                        <h4>Pepsi<h4>                                                                           
                                     </td>
 
                                     <td>
-                                        <div class="client-info">
-                                            <h4>andrew@gmail.com</h4>
-                                        </div>
+                                        <h4>2.00</h4>
                                     </td>
 
                                     <td>
-                                        <div class="client-info">
-                                            <h4>Ghana</h4>
-                                        </div>
+                                        <img src="../images/books/book-of-the-night.jpeg" style="width: 50px; height: 50px;">
                                     </td>
 
-                                    <td>
-                                        <div class="client-info">
-                                            <h4>Tema</h4>
-                                        </div>
-                                    </td>
 
                                     <td>
-                                        <div class="client-info">
-                                            <h4>0550159324</h4>
+                                        <div class="add">
+                                            <button>Edit product</button>
+                                        </div>
+                                        <br>
+                                        <div class="add">
+                                            <button>Delete product</button>
                                         </div>
                                     </td>
                                 </tr>

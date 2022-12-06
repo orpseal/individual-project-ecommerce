@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@300;400;500;600&display=swap');
 
 :root {
-    --main-color: #22BAA0;
+    --main-color: #2443b5;
     --color-dark: #34425A;
     --text-grey: #B0B0B0;
 }
@@ -377,6 +377,7 @@ input, button, select {
     padding: 0rem 1rem;
     border: none;
     font-weight: 600;
+    cursor: pointer;
 }
 
 .browse input {
