@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+require("../controllers/customers.controller.php");
 function Redirect()
 {
     header("location: ../view/login.php");
@@ -19,6 +19,7 @@ if (isset($_GET['logout'])) {
     unset($_SESSION['name']);
     Redirect();
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -165,6 +166,55 @@ if (isset($_GET['logout'])) {
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php
+                                $customers = viewallcustomers_ctr();
+                                foreach ((array) $customers as $customer) {
+                                    $name = $customer['customer_name'];
+                                    $email = $customer['customer_email'];
+                                    $country = $customer['customer_country'];
+                                    $city = $customer['customer_city'];
+                                    $contact = $customer['customer_contact'];
+                                    echo "
+                                    <tr>
+                                        <td>#5033</td>
+                                        <td>
+                                            <div class='client'>
+                                                <div class='client-info'>
+                                                    <h4>$name</h4>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class='client'>
+                                                <div class='client-info'>
+                                                    <h4>$email</h4>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class='client'>
+                                                <div class='client-info'>
+                                                    <h4>$country</h4>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class='client'>
+                                                <div class='client-info'>
+                                                    <h4>$city</h4>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class='client'>
+                                                <div class='client-info'>
+                                                    <h4>$contact</h4>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>";
+                                }
+                                ?>
                                 <tr>
                                     <td>#5033</td>
 
