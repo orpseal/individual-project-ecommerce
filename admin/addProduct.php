@@ -9,6 +9,7 @@
 
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
 
+    <?php include('../controllers/admin_controller.php');?>
     
 </head>
 <body>
@@ -107,7 +108,8 @@
             <div class="container">
 
                 <div class="admin-product-form-container">
-                    <form action = "" method="">
+
+                    <form action = "../actions/addProduct_action.php" method="post">
                         <h3>Add new product</h3>
                         
                         <input type="text" placeholder="enter product title" name="product_title" class="box">
@@ -115,10 +117,36 @@
                         <br><br>
                         <select name="product_brand">
                             <option>Select Brand</option>
-                        </select>
+                            <?php
+                                $brands = selectAllBrands_ctr();
+                                if($brands){
+                                    foreach((array)$brands as $abrand){
+                                        $brand_id = $abrand['brand_id'];
+                                        $brand_name = $abrand['brand_name'];
 
+                                        echo"<option value='$brand_id'>$brand_name</option>";
+                                    }
+                                }else{
+                                    echo "<option value='no_found'>No brand found</option>";
+                                }             
+                            ?>
+                        </select>
+                        
                         <select name="product_category">
                             <option>Select Category</option>
+                            <?php
+                                $categories = selectAllCategory_ctr();
+                                if($categories){
+                                    foreach((array)$categories as $acategory){
+                                        $category_id = $acategory['cat_id'];
+                                        $category_name = $acategory['cat_name'];
+
+                                        echo"<option value='$category_id'>$category_name</option>";
+                                    }
+                                }else{
+                                    echo "<option value='no_found'>No category found</option>";
+                                }             
+                            ?>
                         </select>
 
                         <br><br>
@@ -136,6 +164,7 @@
 
                         <input type="submit" class="btn" name="submit" value="ADD">
                     </form>
+                    
                 </div>
             
             </div>
