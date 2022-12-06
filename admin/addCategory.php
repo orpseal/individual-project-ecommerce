@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-    <title>Modern Admin Dashboard</title>
+    <title>Add Product</title>
     <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="../css/adminform.css">
 
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
 
-    <style>
-        
-    </style>
+    <?php include('../controllers/admin_controller.php');?>
+    
 </head>
 <body>
    <input type="checkbox" id="menu-toggle">
@@ -97,7 +97,7 @@
             </div>
         </header>
         
-        <!-----------  -->
+<!-------------------------------------page content----------------------------------->
         <main>
             
             <div class="page-header">
@@ -105,53 +105,20 @@
                 <small>Home / Categories / Add Category</small>
             </div>
             
-            <div class="page-content">
+            <div class="container">
 
-                <div class="records table-responsive">
+                <div class="admin-product-form-container">
 
-                    <div class="record-header">
-                        <div class="add">
-                            <a href="addCategory.php" style="cursor: pointer;"><button>Add category</button></a>
-                        </div>
+                    <form action = "../actions/addCategory_action.php" method="get">
+                        <h3>Add new category</h3>
+                        
+                        <input type="text" placeholder="enter category name" name="category_name" class="box">
 
-                        <div class="browse">
-                           <input type="search" placeholder="Search" class="record-search">
-                        </div>
-                    </div>
+                        <br><br>
 
-                    <div>
-                        <table width="100%">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th><span class="las la-sort"></span> NAME</th>
-                                    <th><span class="las la-sort"></span> ACTIONS</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>#5033</td>
-
-                                    <td>
-                                        <h4>A Little Life</h4>                                            
-                                    </td>
-
-                                    <td>
-                                        <div class="add">
-                                            <button>Edit category</button>
-                                        </div>
-                                        <br>
-                                        <div class="add">
-                                            <button>Delete category</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                
-                                
-                            </tbody>
-                        </table>
-                    </div>
-
+                        <input type="submit" class="btn" name="submit" value="ADD">
+                    </form>
+                    
                 </div>
             
             </div>
