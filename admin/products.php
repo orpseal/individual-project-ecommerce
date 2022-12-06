@@ -108,9 +108,20 @@ if (isset($_GET['logout'])) {
 
                     <div class="user">
                         <div class="bg-img" style="background-image: url(img/1.jpeg)"></div>
-
-                        <span class="las la-power-off"></span>
-                        <span>Logout</span>
+                        <span class="user-msg">
+                            <?php if (isset($_SESSION['name'])) : ?>
+                                <strong>
+                                    <?php echo $_SESSION['name']; ?>
+                                </strong>
+                            <?php endif ?>
+                        </span>
+                        <span>
+                            <span>
+                                <?php if (isset($_SESSION['name'])) : ?>
+                                    <span class="las la-power-off"></span><a href="index.php?logout='1'" style="color: red;">Logout</a><!-- this logout the admin -->
+                                <?php endif ?>
+                            </span>
+                        </span>
                     </div>
                 </div>
             </div>

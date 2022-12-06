@@ -1,5 +1,13 @@
+<?php
+session_start();
+include("../controllers/cart_controller.php");
+// include("../settings/core.php");
+$c_id = 1;
+$cartitems = viewcart_ctr($c_id);
+?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,14 +23,19 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
+
 <body>
 
-<!-- ---------------header and navbar ---------------- -->
+    <!-- ---------------header and navbar ---------------- -->
 
     <div class="container">
         <div class="navbar">
             <div class="logo">
+<<<<<<< Updated upstream
                 <a href="index.php"><img src="../images/newlogo.svg" width = "125px"></a>
+=======
+                <a href="index.php"><img src="../images/newlogo-new.svg" width="125px"></a>
+>>>>>>> Stashed changes
             </div>
 
             <nav>
@@ -33,134 +46,142 @@
                     <li><a href="login.php">Login</a></li>
                 </ul>
             </nav>
-            <a href="cart.php"><img src="../images/cart.png" width = "30px" height="25px";></a>
+            <a href="cart.php"><img src="../images/cart.png" width="30px" height="25px" ;></a>
             <img src="../images/menu.jpeg" class="menu-icon" onclick="menutoggle()">
         </div>
-    
+
     </div>
 
 
-<!-- -----------cart items details--------- -->
+    <!-- -----------cart items details--------- -->
 
-<div class="small-container cart-page">
-    <div class="checkout">
-        <a href="products.php" class="btn">Conitnue Shopping</a>
-    </div>
+    <div class="small-container cart-page">
+        <div class="checkout">
+            <a href="products.php" class="btn">Conitnue Shopping</a>
+        </div>
 
-    <table>
-        <tr>
-            <th>Product</th>
-            <th>Quantity</th>
-            <th>Subtotal</th>
-        </tr>
-        <tr>
-            <td>
-                <div class="cart-info">
-                    <img src="../images/books/book-of-the-night.jpeg">
-                </div>
-                <div>
-                    <p>Book Of The Night</p>
-                    <small>Price: GHC 50.00</small>
-                    <br>
-                    <a href="">Remove</a>
-                </div>
-            </td>
-            <td><input type="number" value="1"></td>
-            <td>GHC 50.00</td>
-        </tr>
-
-        <tr>
-            <td>
-                <div class="cart-info">
-                    <img src="../images/books/book-of-the-night.jpeg">
-                </div>
-                <div>
-                    <p>Book Of The Night</p>
-                    <small>Price: GHC 50.00</small>
-                    <br>
-                    <a href="">Remove</a>
-                </div>
-            </td>
-            <td><input type="number" value="1"></td>
-            <td>GHC 50.00</td>
-        </tr>
-
-        <tr>
-            <td>
-                <div class="cart-info">
-                    <img src="../images/books/book-of-the-night.jpeg">
-                </div>
-                <div>
-                    <p>Book Of The Night</p>
-                    <small>Price: GHC 50.00</small>
-                    <br>
-                    <a href="">Remove</a>
-                </div>
-            </td>
-            <td><input type="number" value="1"></td>
-            <td>GHC 50.00</td>
-        </tr>
-    </table>
-
-    <div class="total-price">
         <table>
             <tr>
-                <td>Total</td>
-                <td>GHC 150.00</td>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Subtotal</th>
+            </tr>
+            <tr>
+                <td>
+                    <div class="cart-info">
+                        <img src="../images/books/book-of-the-night.jpeg">
+                    </div>
+                    <div>
+                        <p>Book Of The Night</p>
+                        <small>Price: GHC 50.00</small>
+                        <br>
+                        <a href="">Remove</a>
+                    </div>
+                </td>
+                <td><input type="number" value="1"></td>
+                <td>GHC 50.00</td>
+            </tr>
+
+            <tr>
+                <td>
+                    <div class="cart-info">
+                        <img src="../images/books/book-of-the-night.jpeg">
+                    </div>
+                    <div>
+                        <p>Book Of The Night</p>
+                        <small>Price: GHC 50.00</small>
+                        <br>
+                        <a href="">Remove</a>
+                    </div>
+                </td>
+                <td><input type="number" value="1"></td>
+                <td>GHC 50.00</td>
+            </tr>
+
+            <tr>
+                <td>
+                    <div class="cart-info">
+                        <img src="../images/books/book-of-the-night.jpeg">
+                    </div>
+                    <div>
+                        <p>Book Of The Night</p>
+                        <small>Price: GHC 50.00</small>
+                        <br>
+                        <a href="">Remove</a>
+                    </div>
+                </td>
+                <td><input type="number" value="1"></td>
+                <td>GHC 50.00</td>
             </tr>
         </table>
+
+        <div class="total-price">
+            <table>
+                <tr>
+                    <td>Total</td>
+                    <td>GHC 150.00</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="checkout">
+            <a href="" class="btn">Checkout</a>
+        </div>
+
     </div>
 
-    <div class="checkout">
-        <a href="" class="btn">Checkout</a>
-    </div>
-    
-</div>
 
+    <!-- ----------------footer---------------- -->
 
-<!-- ----------------footer---------------- -->
-
-<div class="footer">
-    <div class="container">
-        <div class="row">
-            <div class="footer-col-1">
-                <h3>Download Our App</h3>
-                <p>Download App for Android and IOS mobile phone.</p>
-                <div class="app-logo">
-                    <img src="../images/playstore.jpeg">
-                    <img src="../images/appstore.png">
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col-1">
+                    <h3>Download Our App</h3>
+                    <p>Download App for Android and IOS mobile phone.</p>
+                    <div class="app-logo">
+                        <img src="../images/playstore.jpeg">
+                        <img src="../images/appstore.png">
+                    </div>
                 </div>
-            </div>
 
+<<<<<<< Updated upstream
             <div class="footer-col-2">
                 <img src="../images/blacknewlogo.svg">
                 <p>Our Purpose Is To Sustainably Make the Pleasure and Benefits of Reading Accessible to Everyone</p>
             </div>
+=======
+                <div class="footer-col-2">
+                    <img src="../images/newlogo-black.png">
+                    <p>Our Purpose Is To Sustainably Make the Pleasure and Benefits of Reading Accessible to Everyone</p>
+                </div>
+>>>>>>> Stashed changes
 
-            <div class="footer-col-3">
-                <h3>Useful Links</h3>
-                <ul>
-                    <li>FAQ</li>
-                    <li>Coupons</li>
-                    <li>Blog Post</li>
-                    <li>Return Policy</li>
-                </ul>
-            </div>
+                <div class="footer-col-3">
+                    <h3>Useful Links</h3>
+                    <ul>
+                        <li>FAQ</li>
+                        <li>Coupons</li>
+                        <li>Blog Post</li>
+                        <li>Return Policy</li>
+                    </ul>
+                </div>
 
-            <div class="footer-col-4">
-                <h3>Follow Us</h3>
-                <ul>
-                    <li>Facebook</li>
-                    <li>Twitter</li>
-                    <li>Instagram</li>
-                    <li>Youtube</li>
-                </ul>
+                <div class="footer-col-4">
+                    <h3>Follow Us</h3>
+                    <ul>
+                        <li>Facebook</li>
+                        <li>Twitter</li>
+                        <li>Instagram</li>
+                        <li>Youtube</li>
+                    </ul>
+                </div>
             </div>
+            <hr>
+            <p class="copyright">Copyright 2022 - Arctic Books. Powered by Nirdteq Enterprise</p>
         </div>
-        <hr>
-        <p class="copyright">Copyright 2022 - Arctic Books. Powered by Nirdteq Enterprise</p>
     </div>
-</div>
 
 </body>
+
 </html>
