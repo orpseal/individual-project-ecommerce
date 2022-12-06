@@ -1,7 +1,6 @@
 <?php
 session_start();
 require("../controllers/products.controller.php");
-
 if (!isset($_SESSION['cid'])) {
     header('location: ../view/login.php');
 }
@@ -145,45 +144,44 @@ if (isset($_GET['logout'])) {
                                 <tr>
                                     <th>#</th>
                                     <th><span class="las la-sort"></span> TITLE</th>
-                                    <th><span class="las la-sort"></span> BRAND</th>
                                     <th><span class="las la-sort"></span> PRICE</th>
                                     <th><span class="las la-sort"></span> IMAGE</th>
                                     <th><span class="las la-sort"></span> ACTIONS</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>#5033</td>
+                                <?php
+                                $products = viewallprod_ctr();
+                                foreach ((array) $products as $product) {
 
-                                    <td>
-                                        <h4>A Little Life</h4>
-                                    </td>
+                                    $product_id = $product['product_id'];
+                                    $product_title = $product['product_title'];
+                                    $pprice = $product['product_price'];
+                                    $pdesc = $product['product_desc'];
+                                    $product_image = $product['product_image'];
 
-                                    <td>
-                                        <h4>Pepsi<h4>
-                                    </td>
-
-                                    <td>
-                                        <h4>2.00</h4>
-                                    </td>
-
-                                    <td>
-                                        <img src="../images/books/book-of-the-night.jpeg" style="width: 50px; height: 50px;">
-                                    </td>
-
-
-                                    <td>
-                                        <div class="add">
-                                            <button>Edit product</button>
-                                        </div>
-                                        <br>
-                                        <div class="add">
-                                            <button>Delete product</button>
-                                        </div>
-                                    </td>
-                                </tr>
-
-
+                                    echo "
+                                        <tr>
+                                            <td>$product_id</td>
+                                            <td>$product_title</td>
+                                            <td>GHS $pprice.00</td>
+                                            <td><img src=' ../images/$product_image' class='card-img-top' style='width: 50px; height: 50px ; ' ></td>
+                                            <td>
+                                            <div class='add'>
+                                                <button>
+                                                <a style='color: white !important;' href='../actions/delete_product.php?product_id={$product_id}' class= 'btn btn-primary'>Delete</a>
+                                                </button>
+                                            </div>
+                                                <br>
+                                            <div class='add'>
+                                                <button>
+                                                    <a style='color: white !important;' href='../view/update_product.php?product_id={$product_id}' class= 'btn btn-primary'>Update</a>
+                                                </button>
+                                            </div>
+                                            </td>
+                                        </tr>";
+                                }
+                                ?>
                             </tbody>
                         </table>
                     </div>
