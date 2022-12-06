@@ -27,7 +27,6 @@ function isValid($email, $password)
         $results = ValidateCredentials_ctr($email, $password);
         if ($results == false) return array_push($errors, "Credentials not valid!");
         // if no errors then create Session & login
-        echo "hello";
         $_SESSION['cid'] = $results['customer_id'];
         $_SESSION['success'] = "You are now logged in";
         $_SESSION['role'] = $results['user_role'];

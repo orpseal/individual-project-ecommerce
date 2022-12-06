@@ -1,20 +1,22 @@
 <?php
 // include('../actions/signup.action.php');
 session_start();
-// $_SESSION = array();
 require("../controllers/products.controller.php");
+function Redirect()
+{
+    header('location: login.php');
+}
 if (!isset($_SESSION['cid'])) {
     $_SESSION['msg'] = "You must log in first";
-    header('location: login.php');
+    Redirect();
 }
 
 if (isset($_GET['logout'])) {
-    // session_destroy();
     unset($_SESSION['cid']);
     unset($_SESSION['success']);
     unset($_SESSION['role']);
     unset($_SESSION['name']);
-    header("location: login.php");
+    Redirect();
 }
 
 
@@ -41,16 +43,6 @@ if (isset($_GET['logout'])) {
 <body>
 
     <!-- ---------------header and navbar ---------------- -->
-    <?php
-    if (isset($_SESSION['success'])) : ?>
-        <h3>
-            <?php
-            echo $_SESSION['success'];
-            unset($_SESSION['success']);
-
-            ?>
-        </h3>
-    <?php endif ?>
     <div class="container">
         <div class="navbar">
             <div class="logo">
@@ -70,7 +62,6 @@ if (isset($_GET['logout'])) {
                         </li>
                         <li><a href="products.php?logout='1'" style="color: red;">Logout</a></li><!-- this logout the admin -->
                     <?php endif ?>
-                    <!-- <li><a href="login.php">Login</a></li> -->
                 </ul>
             </nav>
             <a href="cart.php"><img src="../images/cart.png" width="30px" height="25px" ;></a>
@@ -93,12 +84,6 @@ if (isset($_GET['logout'])) {
                     $id = $category['cat_id'];
                     echo "<option value='$id'>$title</option>";
                 } ?>
-                <!-- 
-                <option>Classic</option>
-                <option>Short Fiction</option>
-                <option>Comedy</option>
-                <option>Young Adult</option>
-                <option>Fantasy</option> -->
             </select>
         </div>
 

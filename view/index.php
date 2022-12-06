@@ -38,7 +38,20 @@ require("../controllers/products.controller.php");
                         <li><a href="index.php">Home</a></li>
                         <li><a href="products.php">Products</a></li>
                         <li><a href="#">Contact</a></li>
-                        <li><a href="login.php">Login</a></li>
+                        <?php if (isset($_SESSION['cid']) and (int)$_SESSION['role'] === 1) : ?>
+                            <li><a href="../admin/" style="color: green;">Dashboard</a></li>
+                        <?php endif ?>
+                        <?php if (isset($_SESSION['name'])) : ?>
+                            <li class="user-msg">
+                                <strong>
+                                    <?php echo $_SESSION['name']; ?>
+                                </strong>
+                            </li>
+                            <li><a href="products.php?logout='1'" style="color: red;">Logout</a></li><!-- this logout the admin -->
+                        <?php endif ?>
+                        <?php if (!isset($_SESSION['name'])) : ?>
+                            <li><a href="login.php">Login</a></li>
+                        <?php endif ?>
                     </ul>
                 </nav>
                 <a href="cart.php"><img src="../images/cart.png" width="30px" height="25px" ;></a>
@@ -61,7 +74,6 @@ require("../controllers/products.controller.php");
     <!-- -------------featured categories------------- -->
     <div class="categories">
         <div class="small-container">
-
             <div class="row">
                 <?php
                 $categories = selectallcat_ctr();
@@ -72,12 +84,6 @@ require("../controllers/products.controller.php");
                             <h3>$title</h3>
                           </div>";
                 } ?>
-                <!-- <div class="col-3">
-                    <h3>Non-Fiction</h3>
-                </div>
-                <div class="col-3">
-                    <h3>Contemporary</h3>
-                </div> -->
             </div>
         </div>
     </div>
@@ -110,65 +116,6 @@ require("../controllers/products.controller.php");
                 <p>GHS $pprice</p>
             </div>";
             } ?>
-            <!-- <div class="col-4">
-                <a href="product-details.php"><img src="../images/books/book-of-the-night.jpeg"></a>
-                <a href="product-details.php">
-                    <h4>Book Of The Night</h4>
-                </a>
-                <div class="rating">
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                </div>
-                <p>GHC 50.00</p>
-            </div>
-
-            <div class="col-4">
-                <a href="product-details.php"><img src="../images/books/book-of-the-night.jpeg"></a>
-                <a href="product-details.php">
-                    <h4>Book Of The Night</h4>
-                </a>
-                <div class="rating">
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                </div>
-                <p>GHC 50.00</p>
-            </div>
-
-            <div class="col-4">
-                <a href="product-details.php"><img src="../images/books/book-of-the-night.jpeg"></a>
-                <a href="product-details.php">
-                    <h4>Book Of The Night</h4>
-                </a>
-                <div class="rating">
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                </div>
-                <p>GHC 50.00</p>
-            </div>
-
-            <div class="col-4">
-                <a href="product-details.php"><img src="../images/books/book-of-the-night.jpeg"></a>
-                <a href="product-details.php">
-                    <h4>Book Of The Night</h4>
-                </a>
-                <div class="rating">
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                </div>
-                <p>GHC 50.00</p>
-            </div> -->
         </div>
     </div>
 

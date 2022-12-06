@@ -1,7 +1,8 @@
 <?php
 session_start();
 require("../controllers/products.controller.php");
-
+$prod = viewoneprod_ctr($_GET['product_id']);
+$cat = selectonecat_ctr((int)$prod['product_cat']);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,7 +38,17 @@ require("../controllers/products.controller.php");
                     <li><a href="index.php">Home</a></li>
                     <li><a href="products.php">Products</a></li>
                     <li><a href="#">Contact</a></li>
-                    <li><a href="login.php">Login</a></li>
+                    <?php if (isset($_SESSION['name'])) : ?>
+                        <li class="user-msg">
+                            <strong>
+                                <?php echo $_SESSION['name']; ?>
+                            </strong>
+                        </li>
+                        <li><a href="products.php?logout='1'" style="color: red;">Logout</a></li>
+                    <?php endif ?>
+                    <?php if (!isset($_SESSION['name'])) : ?>
+                        <li><a href="login.php">Login</a></li>
+                    <?php endif ?>
                 </ul>
             </nav>
             <a href="cart.php"><img src="../images/cart.png" width="30px" height="25px" ;></a>
@@ -51,12 +62,20 @@ require("../controllers/products.controller.php");
     <div class="small-container single-product">
         <div class="row">
             <div class="col-2">
-                <img src="../images/books/book-of-the-night.jpeg" width="100%">
+                <img src="<?php echo $prod['product_image'] ?>" alt="Generic placeholder image">
             </div>
             <div class="col-2">
                 <p>Home / Book</p>
-                <h1>Book Of The Night</h1>
-                <h4>GHC 50.00</h4>
+                <h1><?php echo $prod['product_title']; ?></h1>
+                <p>
+                    <?php
+                    foreach ((array) $cat as $value) {
+                        $cat_title = $value;
+                        echo " $cat_title";
+                    }
+                    ?>
+                </p>
+                <h4>GHC <?php echo $prod['product_price']; ?></h4>
                 <select>
                     <option>Rent</option>
                     <option>Buy</option>
@@ -66,7 +85,7 @@ require("../controllers/products.controller.php");
 
                 <h3>Book Details <i class="fa fa-indent"></i></h3>
                 <br>
-                <p>In Charlie Hall world, shadows can be altered, for entertainment and cosmetic preferences—but also to increase power and influence. You can alter someones feelings—and memories—but manipulating shadows has a cost, with the potential to take hours or days from your life. Your shadow holds all the parts of you that you want to keep hidden—a second self, standing just to your left, walking behind you into lit rooms. And sometimes, it has a life of its own.</p>
+                <p><?php echo $prod['product_desc']; ?></p>
             </div>
         </div>
     </div>
@@ -113,57 +132,6 @@ require("../controllers/products.controller.php");
                 <p>GHS $pprice</p>
             </div>";
             } ?>
-            <!-- <div class="col-4">
-                <img src="../images/books/book-of-the-night.jpeg">
-                <h4>Book Of The Night</h4>
-                <div class="rating">
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                </div>
-                <p>GHC 50.00</p>
-            </div>
-
-            <div class="col-4">
-                <img src="../images/books/book-of-the-night.jpeg">
-                <h4>Book Of The Night</h4>
-                <div class="rating">
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                </div>
-                <p>GHC 50.00</p>
-            </div>
-
-            <div class="col-4">
-                <img src="../images/books/book-of-the-night.jpeg">
-                <h4>Book Of The Night</h4>
-                <div class="rating">
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                </div>
-                <p>GHC 50.00</p>
-            </div>
-
-            <div class="col-4">
-                <img src="../images/books/book-of-the-night.jpeg">
-                <h4>Book Of The Night</h4>
-                <div class="rating">
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                </div>
-                <p>GHC 50.00</p>
-            </div> -->
         </div>
     </div>
 
