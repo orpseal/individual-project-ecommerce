@@ -138,7 +138,13 @@ include("../settings/core.php");
         </div>
 
         <div class="checkout">
-            <a href="../view/payment.php" class="btn">Checkout</a>
+            <?php
+            $customer_id = $_SESSION['cid'];
+            $cart_items = viewcart_ctr((int)$customer_id);
+            if ($cart_items) {
+                echo '<a href="../view/payment.php" class="btn">Checkout</a>';
+            }
+            ?>
         </div>
 
     </div>

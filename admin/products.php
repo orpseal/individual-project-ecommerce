@@ -180,7 +180,7 @@ if (isset($_GET['logout'])) {
                                             <td>
                                             <div class='add'>
                                                 <button>
-                                                <a style='color: white !important;' href='../actions/delete_product.php?product_id={$product_id}' class= 'btn btn-primary'>Delete</a>
+                                                <a style='color: white !important;' href='../actions/admin.delete.product.php?product_id={$product_id}' class= 'btn btn-primary'>Delete</a>
                                                 </button>
                                             </div>
                                                 <br>
