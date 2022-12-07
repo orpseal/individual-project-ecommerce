@@ -28,7 +28,7 @@ if (isset($_GET['logout'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-    <title>Modern Admin Dashboard</title>
+    <title>Admin Dashboard</title>
     <link rel="stylesheet" href="../css/admin.css">
 
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
@@ -169,6 +169,7 @@ if (isset($_GET['logout'])) {
                                 <?php
                                 $customers = viewallcustomers_ctr();
                                 foreach ((array) $customers as $customer) {
+                                    $id = $customer['customer_id'];
                                     $name = $customer['customer_name'];
                                     $email = $customer['customer_email'];
                                     $country = $customer['customer_country'];
@@ -176,7 +177,7 @@ if (isset($_GET['logout'])) {
                                     $contact = $customer['customer_contact'];
                                     echo "
                                     <tr>
-                                        <td>#5033</td>
+                                        <td>$id</td>
                                         <td>
                                             <div class='client'>
                                                 <div class='client-info'>
@@ -215,7 +216,7 @@ if (isset($_GET['logout'])) {
                                     </tr>";
                                 }
                                 ?>
-                                <tr>
+                                <!-- <tr>
                                     <td>#5033</td>
 
                                     <td>
@@ -249,7 +250,7 @@ if (isset($_GET['logout'])) {
                                             <h4>0550159324</h4>
                                         </div>
                                     </td>
-                                </tr>
+                                </tr> -->
 
 
                             </tbody>

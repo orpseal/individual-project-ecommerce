@@ -1,10 +1,10 @@
 <?php
 session_start();
-require("../controllers/products.controller.php");
+//require("../controllers/products.controller.php");
 
-if (!isset($_SESSION['cid'])) {
-    header('location: ../view/login.php');
-}
+// if (!isset($_SESSION['cid'])) {
+//     header('location: ../view/login.php');
+// }
 
 if (isset($_GET['logout'])) {
     unset($_SESSION['cid']);
@@ -22,7 +22,7 @@ if (isset($_GET['logout'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-    <title>Add Product</title>
+    <title>Add Brand</title>
     <link rel="stylesheet" href="../css/admin.css">
     <link rel="stylesheet" href="../css/adminform.css">
 

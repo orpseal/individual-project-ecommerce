@@ -10,22 +10,34 @@ if(isset($_POST['submit'])){
     $product_brand = $_POST['product_brand'];
     $product_image = $_FILES['product_image']['name'];
     
-    $targetdir = "../images/products/";
-    $image = $targetdir . $product_image;
-    $file = '../images/products/' .basename($_FILES["product_image"]["name"]);
+    $msg = "";
+    $filename = $_FILES["product_image"]["name"];
+    $tempname = $_FILES["product_image"]["tmp_name"];    
+        $folder = "images/books/".$filename;
 
-    move_uploaded_file($_FILES["product_image"]["tmp_name"],$file);
+    // $targetdir = "../images/books/";
+    // $image = $targetdir . $product_image;
+    // $file = '../images/books/' .basename($_FILES["product_image"]["name"]);
+
+    // move_uploaded_file($_FILES["product_image"]["tmp_name"],$file);
 
     $result = addProduct_ctr($product_category,$product_title,$product_price,$product_desc,$product_keywords,$product_brand,$product_image);
 
     if($result){
-        if(move_uploaded_file($_FILES["product_image"]["tmp_name"], "../images/products/".$_FILES["product_image"]["name"])){
-            echo "success";
-        }else{
-            echo "fail";
+            if (move_uploaded_file($tempname, $folder))  {
+                $msg = "Image uploaded successfully";
+            }else{
+                $msg = "Failed to upload image";
         }
+        // if(move_uploaded_file($_FILES["product_image"]["tmp_name"], "../images/books/".$_FILES["product_image"]["name"])){
+        //     echo "success";
+        // }else{
+        //     echo "fail";
+        // }
         header("Location:../admin/addProduct.php");
     }else{
         header("Location:../admin/addProduct.php");
     }
 }
+
+

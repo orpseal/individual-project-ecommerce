@@ -1,18 +1,18 @@
 <?php
-session_start();
-require("../controllers/products.controller.php");
+// session_start();
+// require("../controllers/products.controller.php");
 
-if (!isset($_SESSION['cid'])) {
-    header('location: ../view/login.php');
-}
+// if (!isset($_SESSION['cid'])) {
+//     header('location: ../view/login.php');
+// }
 
-if (isset($_GET['logout'])) {
-    unset($_SESSION['cid']);
-    unset($_SESSION['success']);
-    unset($_SESSION['role']);
-    unset($_SESSION['name']);
-    header("location: ../view/login.php");
-}
+// if (isset($_GET['logout'])) {
+//     unset($_SESSION['cid']);
+//     unset($_SESSION['success']);
+//     unset($_SESSION['role']);
+//     unset($_SESSION['name']);
+//     header("location: ../view/login.php");
+// }
 
 ?>
 
