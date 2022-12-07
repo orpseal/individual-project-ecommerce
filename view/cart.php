@@ -99,7 +99,7 @@ include("../settings/core.php");
                                         <p>$product_title</p>
                                         <small>Price: GHC $product_price.00</small>
                                         <br>
-                                        <a href=''>Remove</a>
+                                        <a href='../actions/removeitem.cart.php?deletecart=$product_id' class='btn btn-primary'>Remove</a>
                                     </div>
                                 </td>
                                 <td><input type='number' value='$product_qty'></td>

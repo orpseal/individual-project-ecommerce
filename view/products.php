@@ -154,7 +154,7 @@ if (isset($_GET['logout'])) {
                 </div>
 
                 <div class="footer-col-2">
-                    <img src="../images/blacknewlogo.svg">
+                    <img src="../images/newlogo-black.png">
                     <p>Our Purpose Is To Sustainably Make the Pleasure and Benefits of Reading Accessible to Everyone</p>
                 </div>
 
