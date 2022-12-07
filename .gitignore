@@ -1,0 +1,14 @@
+
+*.woff2
+*.ttf
+*.eot
+*.svg
+*.scss
+*.woff
+*.json
+*.yml
+*.less
+*.js
+*.css
+fontawesome/svgs/.DS_Store
+fontawesome/.DS_Store

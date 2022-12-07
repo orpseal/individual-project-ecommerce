@@ -158,25 +158,32 @@ if (isset($_GET['logout'])) {
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php
+                                $brands = selectallBrand_ctr();
+                                foreach ((array) $brands as $brand) {
+                                    $title = $brand['brand_name'];
+                                    $id = $brand['brand_id'];
+                                    echo "
                                 <tr>
-                                    <td>#5033</td>
+                                    <td># $id</td>
 
                                     <td>
-                                        <h4>A Little Life</h4>
+                                        <h4>$title</h4>
                                     </td>
 
                                     <td>
-                                        <div class="add">
+                                        <div class='add'>
                                             <button>Edit brand</button>
                                         </div>
                                         <br>
-                                        <div class="add">
+                                        <div class='add'>
                                             <button>Delete brand</button>
                                         </div>
                                     </td>
                                 </tr>
-
-
+                                ";
+                                }
+                                ?>
                             </tbody>
                         </table>
                     </div>

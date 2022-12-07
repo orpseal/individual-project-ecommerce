@@ -160,25 +160,32 @@ if (isset($_GET['logout'])) {
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>#5033</td>
+                                <?php
+                                $categories = selectallcat_ctr();
+                                foreach ((array) $categories as $category) {
+                                    $title = $category['cat_name'];
+                                    $id = $category['cat_id'];
+                                    echo "
+                                    <tr>
+                                    <td># $id</td>
 
                                     <td>
-                                        <h4>A Little Life</h4>
+                                        <h4>$title</h4>
                                     </td>
 
                                     <td>
-                                        <div class="add">
+                                        <div class='add'>
                                             <button>Edit category</button>
                                         </div>
                                         <br>
-                                        <div class="add">
+                                        <div class='add'>
                                             <button>Delete category</button>
                                         </div>
                                     </td>
                                 </tr>
-
-
+                                    ";
+                                }
+                                ?>
                             </tbody>
                         </table>
                     </div>
