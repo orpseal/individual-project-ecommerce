@@ -1,6 +1,7 @@
 <?php
 session_start();
 require("../controllers/products.controller.php");
+$product_id = $_GET['product_id'];
 $prod = viewoneprod_ctr($_GET['product_id']);
 $cat = selectonecat_ctr((int)$prod['product_cat']);
 ?>
@@ -30,7 +31,7 @@ $cat = selectonecat_ctr((int)$prod['product_cat']);
     <div class="container">
         <div class="navbar">
             <div class="logo">
-                <a href="index.php"><img src="../images/newlogo.svg" width="125px"></a>
+                <a href="index.php"><img src="../images/newlogo-new.svg" width="125px"></a>
             </div>
 
             <nav>
@@ -80,9 +81,10 @@ $cat = selectonecat_ctr((int)$prod['product_cat']);
                     <option>Rent</option>
                     <option>Buy</option>
                 </select>
-                <input type="number" value="1">
-                <a href="" class="btn">Add To Cart</a>
-
+                <input type="number" value="1"></br>
+                <?php
+                echo "<a href='../actions/add.to.cart.php?product_id={$prod['product_id']}' type='submit' name='add-to-cart' class='btn'>Add to cart</a>";
+                ?>
                 <h3>Book Details <i class="fa fa-indent"></i></h3>
                 <br>
                 <p><?php echo $prod['product_desc']; ?></p>
@@ -111,6 +113,7 @@ $cat = selectonecat_ctr((int)$prod['product_cat']);
             <?php
             $products = viewallprod_ctr();
             foreach ((array) $products as $product) {
+                $product_id = $product['product_id'];
                 $product_title = $product['product_title'];
                 $pcat = $product['product_cat'];
                 $pbrand = $product['product_brand'];
@@ -120,7 +123,7 @@ $cat = selectonecat_ctr((int)$prod['product_cat']);
                 $product_image = $product['product_image'];
                 echo "
                 <div class='col-4'>
-                <a href='product-details.php?product_id={$product['product_id']}'><img src='$product_image'></a>
+                <a href='product-details.php?product_id={$product_id}'><img src='$product_image'></a>
                 <h4>$product_title</h4>
                 <div class='rating'>
                     <i class='fa fa-star' aria-hidden='true'></i>
@@ -130,7 +133,7 @@ $cat = selectonecat_ctr((int)$prod['product_cat']);
                     <i class='fa fa-star-o' aria-hidden='true'></i>
                 </div>
                 <p>GHS $pprice</p>
-            </div>";
+                </div>";
             } ?>
         </div>
     </div>
@@ -151,7 +154,7 @@ $cat = selectonecat_ctr((int)$prod['product_cat']);
                 </div>
 
                 <div class="footer-col-2">
-                    <img src="../images/blacknewlogo.png">
+                    <img src="../images/newlogo-black.png">
                     <p>Our Purpose Is To Sustainably Make the Pleasure and Benefits of Reading Accessible to Everyone</p>
                 </div>
 

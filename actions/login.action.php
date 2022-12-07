@@ -23,12 +23,12 @@ function isValid($email, $password)
         array_push($errors, "Password is required");
     }
     if (count($errors) == 0) { // checks if no errors
-        // check if no user has the same details(email)
+        // check if no user has has same details(email)
         $results = ValidateCredentials_ctr($email, $password);
         if ($results == false) return array_push($errors, "Credentials not valid!");
         // if no errors then create Session & login
         $_SESSION['cid'] = $results['customer_id'];
-        $_SESSION['success'] = "";
+        $_SESSION['success'] = "You are now logged in";
         $_SESSION['role'] = $results['user_role'];
         $_SESSION['name'] = $results['customer_name'];
         header('location: ../view/products.php');

@@ -1,9 +1,7 @@
 <?php
-session_start();
-include("../controllers/cart_controller.php");
-// include("../settings/core.php");
-$c_id = 1;
-$cartitems = viewcart_ctr($c_id);
+include("../controllers/cart.controller.php");
+include("../settings/core.php");
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,11 +29,7 @@ $cartitems = viewcart_ctr($c_id);
     <div class="container">
         <div class="navbar">
             <div class="logo">
-<<<<<<< Updated upstream
-                <a href="index.php"><img src="../images/newlogo.svg" width = "125px"></a>
-=======
                 <a href="index.php"><img src="../images/newlogo-new.svg" width="125px"></a>
->>>>>>> Stashed changes
             </div>
 
             <nav>
@@ -66,7 +60,37 @@ $cartitems = viewcart_ctr($c_id);
                 <th>Quantity</th>
                 <th>Subtotal</th>
             </tr>
-            <tr>
+            <?php
+            $customer_id = $_SESSION['cid'];
+            // $c_id = get_id();
+            $cart_items = viewcart_ctr((int)$customer_id);
+            foreach ((array) $cart_items as $oneitem) {
+                $product_id = $oneitem['product_id'];
+                $product_title = $oneitem['product_title'];
+                $product_price = $oneitem['product_price'];
+                $product_image = $oneitem['product_image'];
+                $product_qty = $oneitem['qty'];
+                if ((int)$product_qty !== 0) {
+                    echo " 
+                            <tr>
+                                <td>
+                                    <div class='cart-info'>
+                                        <img src='$product_image'>
+                                    </div>
+                                    <div>
+                                        <p>Book Of The Night</p>
+                                        <small>Price: 1GHC $product_price.00</small>
+                                        <br>
+                                        <a href=''>Remove</a>
+                                    </div>
+                                </td>
+                                <td><input type='number' value='$product_qty'></td>
+                                <td>GHC $product_price.00</td>
+                            </tr>";
+                }
+            }
+            ?>
+            <!-- <tr>
                 <td>
                     <div class="cart-info">
                         <img src="../images/books/book-of-the-night.jpeg">
@@ -96,23 +120,7 @@ $cartitems = viewcart_ctr($c_id);
                 </td>
                 <td><input type="number" value="1"></td>
                 <td>GHC 50.00</td>
-            </tr>
-
-            <tr>
-                <td>
-                    <div class="cart-info">
-                        <img src="../images/books/book-of-the-night.jpeg">
-                    </div>
-                    <div>
-                        <p>Book Of The Night</p>
-                        <small>Price: GHC 50.00</small>
-                        <br>
-                        <a href="">Remove</a>
-                    </div>
-                </td>
-                <td><input type="number" value="1"></td>
-                <td>GHC 50.00</td>
-            </tr>
+            </tr> -->
         </table>
 
         <div class="total-price">
@@ -145,17 +153,10 @@ $cartitems = viewcart_ctr($c_id);
                     </div>
                 </div>
 
-<<<<<<< Updated upstream
-            <div class="footer-col-2">
-                <img src="../images/blacknewlogo.svg">
-                <p>Our Purpose Is To Sustainably Make the Pleasure and Benefits of Reading Accessible to Everyone</p>
-            </div>
-=======
                 <div class="footer-col-2">
                     <img src="../images/newlogo-black.png">
                     <p>Our Purpose Is To Sustainably Make the Pleasure and Benefits of Reading Accessible to Everyone</p>
                 </div>
->>>>>>> Stashed changes
 
                 <div class="footer-col-3">
                     <h3>Useful Links</h3>
