@@ -96,7 +96,8 @@ require("../controllers/products.controller.php");
         <div class="row">
             <?php
             $products = viewallprod_ctr();
-            foreach ((array) $products as $product) {
+            $products_3products = array_slice((array)$products,0,3);
+            foreach ((array) $products_3products as $product) {
                 $product_title = $product['product_title'];
                 $pcat = $product['product_cat'];
                 $pbrand = $product['product_brand'];
