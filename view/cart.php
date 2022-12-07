@@ -43,7 +43,19 @@ include("../settings/core.php");
                     <li><a href="index.php">Home</a></li>
                     <li><a href="products.php">Products</a></li>
                     <li><a href="#">Contact</a></li>
-                    <li><a href="login.php">Login</a></li>
+
+                        <?php if (isset($_SESSION['name'])) : ?>
+                            <li class="user-msg">
+                                <strong>
+                                    <?php echo $_SESSION['name']; ?>
+                                </strong>
+                            </li>
+                            <li><a href="products.php?logout='1'" style="color: red;">Logout</a></li><!-- this logout the admin -->
+                        <?php endif ?>
+
+                        <?php if (!isset($_SESSION['name'])) : ?>
+                            <li><a href="login.php">Login</a></li>
+                        <?php endif ?>
                 </ul>
             </nav>
             <a href="cart.php"><img src="../images/cart.png" width="30px" height="25px" ;></a>
@@ -84,8 +96,8 @@ include("../settings/core.php");
                                         <img src='$product_image'>
                                     </div>
                                     <div>
-                                        <p>Book Of The Night</p>
-                                        <small>Price: 1GHC $product_price.00</small>
+                                        <p>$product_title</p>
+                                        <small>Price: GHC $product_price.00</small>
                                         <br>
                                         <a href=''>Remove</a>
                                     </div>
@@ -96,50 +108,37 @@ include("../settings/core.php");
                 }
             }
             ?>
-            <!-- <tr>
-                <td>
-                    <div class="cart-info">
-                        <img src="../images/books/book-of-the-night.jpeg">
-                    </div>
-                    <div>
-                        <p>Book Of The Night</p>
-                        <small>Price: GHC 50.00</small>
-                        <br>
-                        <a href="">Remove</a>
-                    </div>
-                </td>
-                <td><input type="number" value="1"></td>
-                <td>GHC 50.00</td>
-            </tr>
-
-            <tr>
-                <td>
-                    <div class="cart-info">
-                        <img src="../images/books/book-of-the-night.jpeg">
-                    </div>
-                    <div>
-                        <p>Book Of The Night</p>
-                        <small>Price: GHC 50.00</small>
-                        <br>
-                        <a href="">Remove</a>
-                    </div>
-                </td>
-                <td><input type="number" value="1"></td>
-                <td>GHC 50.00</td>
-            </tr> -->
+            
         </table>
 
         <div class="total-price">
             <table>
                 <tr>
                     <td>Total</td>
-                    <td>GHC 150.00</td>
+
+                    <?php
+                    $customer_id = $_SESSION['cid'];
+                    $cart_items = viewcart_ctr((int)$customer_id);
+                    $product_total = 0;
+                    
+                    foreach((array) $cart_items as $oneitem){
+                        $product_qty = $oneitem['qty'];
+                        $product_price = $oneitem['product_price'];
+
+                        if ((int)$product_qty !== 0) {
+                            $product_total += $product_price;
+                        }
+                    }
+
+                    echo "<td>GHC $product_total.00</td>"                
+                    ?>
+                    
                 </tr>
             </table>
         </div>
 
         <div class="checkout">
-            <a href="" class="btn">Checkout</a>
+            <a href="../actions/payment.php" class="btn">Checkout</a>
         </div>
 
     </div>
@@ -164,10 +163,7 @@ include("../settings/core.php");
                 <p>Our Purpose Is To Sustainably Make the Pleasure and Benefits of Reading Accessible to Everyone</p>
             </div>
 
-                <div class="footer-col-2">
-                    <img src="../images/newlogo-black.png">
-                    <p>Our Purpose Is To Sustainably Make the Pleasure and Benefits of Reading Accessible to Everyone</p>
-                </div>
+               
 
                 <div class="footer-col-3">
                     <h3>Useful Links</h3>

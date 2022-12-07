@@ -30,7 +30,7 @@ require("../controllers/products.controller.php");
         <div class="container">
             <div class="navbar">
                 <div class="logo">
-                    <a href="index.php"><img src="../images/newlogo-new.svg" width="125px"></a>
+                    <a href="index.php"><img src="../images/newlogo.svg" width="125px"></a>
                 </div>
 
                 <nav>
@@ -41,6 +41,7 @@ require("../controllers/products.controller.php");
                         <?php if (isset($_SESSION['cid']) and (int)$_SESSION['role'] === 1) : ?>
                             <li><a href="../admin/" style="color: green;">Dashboard</a></li>
                         <?php endif ?>
+
                         <?php if (isset($_SESSION['name'])) : ?>
                             <li class="user-msg">
                                 <strong>
@@ -49,6 +50,7 @@ require("../controllers/products.controller.php");
                             </li>
                             <li><a href="products.php?logout='1'" style="color: red;">Logout</a></li><!-- this logout the admin -->
                         <?php endif ?>
+
                         <?php if (!isset($_SESSION['name'])) : ?>
                             <li><a href="login.php">Login</a></li>
                         <?php endif ?>
@@ -212,7 +214,7 @@ require("../controllers/products.controller.php");
                 </div>
 
                 <div class="footer-col-2">
-                    <img src="../images/newlogo-black.png">
+                    <img src="../images/blacknewlogo.svg">
                     <p>Our Purpose Is To Sustainably Make the Pleasure and Benefits of Reading Accessible to Everyone</p>
                 </div>
 

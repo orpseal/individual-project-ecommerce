@@ -46,7 +46,7 @@ if (isset($_GET['logout'])) {
     <div class="container">
         <div class="navbar">
             <div class="logo">
-                <a href="index.php"><img src="../images/newlogo-new.svg" width="125px"></a>
+                <a href="index.php"><img src="../images/newlogo.svg" width="125px"></a>
             </div>
 
             <nav>
@@ -112,6 +112,8 @@ if (isset($_GET['logout'])) {
                 <p>GHS $pprice</p>
             </div>";
             } ?>
+            
+
             <!-- <div class="col-4">
                 <img src="../images/books/book-of-the-night.jpeg">
                 <h4>Book Of The Night</h4>
@@ -120,144 +122,10 @@ if (isset($_GET['logout'])) {
                     <i class="fa fa-star" aria-hidden="true"></i>
                     <i class="fa fa-star" aria-hidden="true"></i>
                     <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                </div>
-                <p>GHC 50.00</p>
-            </div>
-
-            <div class="col-4">
-                <img src="../images/books/book-of-the-night.jpeg">
-                <h4>Book Of The Night</h4>
-                <div class="rating">
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                </div>
-                <p>GHC 50.00</p>
-            </div>
-
-            <div class="col-4">
-                <img src="../images/books/book-of-the-night.jpeg">
-                <h4>Book Of The Night</h4>
-                <div class="rating">
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
                     <i class="fa fa-star-half-o" aria-hidden="true"></i>
                 </div>
                 <p>GHC 50.00</p>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-4">
-                <img src="../images/books/book-of-the-night.jpeg">
-                <h4>Book Of The Night</h4>
-                <div class="rating">
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                </div>
-                <p>GHC 50.00</p>
-            </div>
-
-            <div class="col-4">
-                <img src="../images/books/book-of-the-night.jpeg">
-                <h4>Book Of The Night</h4>
-                <div class="rating">
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                </div>
-                <p>GHC 50.00</p>
-            </div>
-
-            <div class="col-4">
-                <img src="../images/books/book-of-the-night.jpeg">
-                <h4>Book Of The Night</h4>
-                <div class="rating">
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                </div>
-                <p>GHC 50.00</p>
-            </div>
-
-            <div class="col-4">
-                <img src="../images/books/book-of-the-night.jpeg">
-                <h4>Book Of The Night</h4>
-                <div class="rating">
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                </div>
-                <p>GHC 50.00</p>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-4">
-                <img src="../images/books/book-of-the-night.jpeg">
-                <h4>Book Of The Night</h4>
-                <div class="rating">
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                </div>
-                <p>GHC 50.00</p>
-            </div>
-
-            <div class="col-4">
-                <img src="../images/books/book-of-the-night.jpeg">
-                <h4>Book Of The Night</h4>
-                <div class="rating">
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                </div>
-                <p>GHC 50.00</p>
-            </div>
-
-            <div class="col-4">
-                <img src="../images/books/book-of-the-night.jpeg">
-                <h4>Book Of The Night</h4>
-                <div class="rating">
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                </div>
-                <p>GHC 50.00</p>
-            </div>
-
-            <div class="col-4">
-                <img src="../images/books/book-of-the-night.jpeg">
-                <h4>Book Of The Night</h4>
-                <div class="rating">
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                </div>
-                <p>GHC 50.00</p>
-            </div> -->
+            </div>  -->
 
             <div class="page-btn">
                 <span>1</span>

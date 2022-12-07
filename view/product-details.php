@@ -31,7 +31,7 @@ $cat = selectonecat_ctr((int)$prod['product_cat']);
     <div class="container">
         <div class="navbar">
             <div class="logo">
-                <a href="index.php"><img src="../images/newlogo-new.svg" width="125px"></a>
+                <a href="index.php"><img src="../images/newlogo.svg" width="125px"></a>
             </div>
 
             <nav>
@@ -154,7 +154,7 @@ $cat = selectonecat_ctr((int)$prod['product_cat']);
                 </div>
 
                 <div class="footer-col-2">
-                    <img src="../images/newlogo-black.png">
+                    <img src="../images/blacknewlogo.svg">
                     <p>Our Purpose Is To Sustainably Make the Pleasure and Benefits of Reading Accessible to Everyone</p>
                 </div>
 
