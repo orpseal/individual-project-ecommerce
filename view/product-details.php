@@ -3,6 +3,7 @@ session_start();
 require("../controllers/products.controller.php");
 $product_id = $_GET['product_id'];
 $prod = viewoneprod_ctr($_GET['product_id']);
+$brand = selectonebrand_ctr((int)$prod['product_brand']);
 $cat = selectonecat_ctr((int)$prod['product_cat']);
 ?>
 <!DOCTYPE html>
@@ -68,6 +69,16 @@ $cat = selectonecat_ctr((int)$prod['product_cat']);
             <div class="col-2">
                 <p>Home / Book</p>
                 <h1><?php echo $prod['product_title']; ?></h1>
+                
+                <p>
+                    <?php
+                    foreach ((array) $brand as $value) {
+                        $brand_title = $value;
+                        echo " $brand_title";
+                    }
+                    ?>
+                </p>
+
                 <p>
                     <?php
                     foreach ((array) $cat as $value) {
@@ -76,6 +87,7 @@ $cat = selectonecat_ctr((int)$prod['product_cat']);
                     }
                     ?>
                 </p>
+
                 <h4>GHC <?php echo $prod['product_price']; ?></h4>
                 <select>
                     <option>Rent</option>
@@ -112,7 +124,8 @@ $cat = selectonecat_ctr((int)$prod['product_cat']);
         <div class="row">
             <?php
             $products = viewallprod_ctr();
-            foreach ((array) $products as $product) {
+            $firstproducts = array_slice((array) $products, 0, 3);
+            foreach ((array) $firstproducts as $product) {
                 $product_id = $product['product_id'];
                 $product_title = $product['product_title'];
                 $pcat = $product['product_cat'];
