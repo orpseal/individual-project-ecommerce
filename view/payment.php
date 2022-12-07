@@ -116,39 +116,28 @@ $grandtotal1 = $grandtotal['SUM(products.product_price*cart.qty)'];
             </div>
         </div>
     </div>
-    <!-- https://paybox.com.co/pay -->
 
     <script>
-        //const paymentForm = document.getElementById('paymentForm');
-        //paymentForm.addEventListener("submit", payWithPaystack, false);
         function payWithPaystack() {
             event.preventDefault();
 
             let handler = PaystackPop.setup({
-                key: 'pk_test_807a46b46c8c9c96fcc5c197e615c83856ee0f6a', // Replace with your public key
+                key: 'pk_test_79ebc141ac59b8db6b7c30a1a8cb72c3030a4e4f',
                 email: document.getElementById("email").value,
                 amount: document.getElementById("amt").value * 100,
-                ref: '' + Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
+                ref: '' + Math.floor((Math.random() * 1000000000) + 1),
                 currency: 'GHS',
-                // label: "Optional string that replaces customer email"
-                onClose: function() {
-                    alert('Window closed.');
-                },
                 callback: function(response) {
-                    // let message = 'Payment complete! Reference: ' + response.reference;  alert(message);
-                    $.ajax({
-                        url: '../actions/payment.action.php?reference=' + response.reference + '&email=' + one + '&amount=' + two,
-                        method: 'get',
-                        success: function(response) {
-                            // the transaction status is in response.data.status
-                            alert(response);
-                            window.location = 'index.php';
-                        }
-                    });
+                    // the transaction status is in response.data.status
+                    console.log(response);
+                    let reference = response.reference;
+                    let confirmed = confirm(`Payment complete! Reference: ${reference}`);
+                    confirmed ? window.location.replace('index.php') : ''; //redirect on success else do nothing
+                },
+                onClose: function() {
+                    alert('Transaction was not completed, window closed')
                 }
             });
-
-
             handler.openIframe();
 
         }

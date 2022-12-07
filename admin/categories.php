@@ -1,7 +1,6 @@
 <?php
 session_start();
-//require("../controllers/products.controller.php");
-require("../controllers/admin_controller.php");
+require("../controllers/products.controller.php");
 
 if (!isset($_SESSION['cid'])) {
     header('location: ../view/login.php');
@@ -161,35 +160,25 @@ if (isset($_GET['logout'])) {
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php
-                                    $categories = selectAllCategory_ctr();
-                                    foreach((array)$categories as $category){
-                                        $id = $category['cat_id'];
-                                        $name = $category['cat_name'];
+                                <tr>
+                                    <td>#5033</td>
 
-                                        echo"
-                                                <tr>
-                                            <td>$id</td>
+                                    <td>
+                                        <h4>A Little Life</h4>
+                                    </td>
 
-                                            <td>
-                                                <h4>$name</h4>
-                                            </td>
+                                    <td>
+                                        <div class="add">
+                                            <button>Edit category</button>
+                                        </div>
+                                        <br>
+                                        <div class="add">
+                                            <button>Delete category</button>
+                                        </div>
+                                    </td>
+                                </tr>
 
-                                            <td>
-                                                <div class='add'>
-                                                    <button>Edit category</button>
-                                                </div>
-                                                <br>
-                                                <div class='add'>
-                                                    <button>Delete category</button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        ";
-                                    }
-                                
-                                ?>
-                                
+
                             </tbody>
                         </table>
                     </div>
