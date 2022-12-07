@@ -158,23 +158,34 @@ if (isset($_GET['logout'])) {
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>#5033</td>
+                            <?php
+                                    $brands = selectallBrand_ctr();
+                                    foreach((array)$brands as $brand){
+                                        $id = $brand['brand_id'];
+                                        $name = $brand['brand_name'];
 
-                                    <td>
-                                        <h4>A Little Life</h4>
-                                    </td>
+                                        echo"
+                                                <tr>
+                                            <td>$id</td>
 
-                                    <td>
-                                        <div class="add">
-                                            <button>Edit brand</button>
-                                        </div>
-                                        <br>
-                                        <div class="add">
-                                            <button>Delete brand</button>
-                                        </div>
-                                    </td>
-                                </tr>
+                                            <td>
+                                                <h4>$name</h4>
+                                            </td>
+
+                                            <td>
+                                                <div class='add'>
+                                                    <button>Edit category</button>
+                                                </div>
+                                                <br>
+                                                <div class='add'>
+                                                    <button>Delete category</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        ";
+                                    }
+                                
+                                ?>
 
 
                             </tbody>
