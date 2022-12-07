@@ -33,7 +33,7 @@ include("../settings/core.php");
                 <!-- <a href="index.php"><img src="../images/newlogo-new.svg" width="125px"></a> -->
 
 
-                <a href="index.php"><img src="../images/newlogo.svg" width = "125px"></a>
+                <a href="index.php"><img src="../images/newlogo.svg" width="125px"></a>
 
 
             </div>
@@ -44,18 +44,18 @@ include("../settings/core.php");
                     <li><a href="products.php">Products</a></li>
                     <li><a href="#">Contact</a></li>
 
-                        <?php if (isset($_SESSION['name'])) : ?>
-                            <li class="user-msg">
-                                <strong>
-                                    <?php echo $_SESSION['name']; ?>
-                                </strong>
-                            </li>
-                            <li><a href="products.php?logout='1'" style="color: red;">Logout</a></li><!-- this logout the admin -->
-                        <?php endif ?>
+                    <?php if (isset($_SESSION['name'])) : ?>
+                        <li class="user-msg">
+                            <strong>
+                                <?php echo $_SESSION['name']; ?>
+                            </strong>
+                        </li>
+                        <li><a href="products.php?logout='1'" style="color: red;">Logout</a></li><!-- this logout the admin -->
+                    <?php endif ?>
 
-                        <?php if (!isset($_SESSION['name'])) : ?>
-                            <li><a href="login.php">Login</a></li>
-                        <?php endif ?>
+                    <?php if (!isset($_SESSION['name'])) : ?>
+                        <li><a href="login.php">Login</a></li>
+                    <?php endif ?>
                 </ul>
             </nav>
             <a href="cart.php"><img src="../images/cart.png" width="30px" height="25px" ;></a>
@@ -108,7 +108,7 @@ include("../settings/core.php");
                 }
             }
             ?>
-            
+
         </table>
 
         <div class="total-price">
@@ -120,8 +120,8 @@ include("../settings/core.php");
                     $customer_id = $_SESSION['cid'];
                     $cart_items = viewcart_ctr((int)$customer_id);
                     $product_total = 0;
-                    
-                    foreach((array) $cart_items as $oneitem){
+
+                    foreach ((array) $cart_items as $oneitem) {
                         $product_qty = $oneitem['qty'];
                         $product_price = $oneitem['product_price'];
 
@@ -130,15 +130,15 @@ include("../settings/core.php");
                         }
                     }
 
-                    echo "<td>GHC $product_total.00</td>"                
+                    echo "<td>GHC $product_total.00</td>"
                     ?>
-                    
+
                 </tr>
             </table>
         </div>
 
         <div class="checkout">
-            <a href="../actions/payment.php" class="btn">Checkout</a>
+            <a href="../view/payment.php" class="btn">Checkout</a>
         </div>
 
     </div>
@@ -158,12 +158,12 @@ include("../settings/core.php");
                     </div>
                 </div>
 
-            <div class="footer-col-2">
-                <img src="../images/blacknewlogo.svg">
-                <p>Our Purpose Is To Sustainably Make the Pleasure and Benefits of Reading Accessible to Everyone</p>
-            </div>
+                <div class="footer-col-2">
+                    <img src="../images/blacknewlogo.svg">
+                    <p>Our Purpose Is To Sustainably Make the Pleasure and Benefits of Reading Accessible to Everyone</p>
+                </div>
 
-               
+
 
                 <div class="footer-col-3">
                     <h3>Useful Links</h3>
