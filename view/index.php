@@ -64,7 +64,7 @@ require("../controllers/products.controller.php");
                 <div class="col-2">
                     <h1>Experience Any Book You Want</h1>
                     <p>Buy or Rent any book you want starting as low as GHC 50.00</p>
-                    <a href="" class="btn">Explore Now &#8594</a>
+                    <a href="products.php" class="btn">Explore Now &#8594</a>
                 </div>
                 <div class="col-2">
                     <img src="../images/bg-3large.jpg">
@@ -90,13 +90,16 @@ require("../controllers/products.controller.php");
         </div>
     </div>
 
-    <!-- -------------featured products------------- -->
+    <!-- -------------featured books------------- -->
     <div class="small-container">
         <h2 class="title">Featured Books</h2>
         <div class="row">
             <?php
             $products = viewallprod_ctr();
-            foreach ((array) $products as $product) {
+
+            $firstproducts = array_slice((array) $products, 0, 3);
+            foreach ((array) $firstproducts as $product) {
+                
                 $product_title = $product['product_title'];
                 $pcat = $product['product_cat'];
                 $pbrand = $product['product_brand'];
