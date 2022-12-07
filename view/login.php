@@ -117,7 +117,7 @@ if (isset($_SESSION['name'])) {
                 </div>
             </div>
             <hr>
-            <p class="copyright">Copyright 2022 - Arctic Books. Powered by Nirdteq Enterprise</p>
+            <p class="copyright">Copyright 2022 - Booktique Ghana</p>
         </div>
     </div>
 

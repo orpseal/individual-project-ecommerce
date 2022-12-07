@@ -29,7 +29,13 @@ include("../settings/core.php");
     <div class="container">
         <div class="navbar">
             <div class="logo">
-                <a href="index.php"><img src="../images/newlogo-new.svg" width="125px"></a>
+
+                <!-- <a href="index.php"><img src="../images/newlogo-new.svg" width="125px"></a> -->
+
+
+                <a href="index.php"><img src="../images/newlogo.svg" width = "125px"></a>
+
+
             </div>
 
             <nav>
@@ -153,6 +159,11 @@ include("../settings/core.php");
                     </div>
                 </div>
 
+            <div class="footer-col-2">
+                <img src="../images/blacknewlogo.svg">
+                <p>Our Purpose Is To Sustainably Make the Pleasure and Benefits of Reading Accessible to Everyone</p>
+            </div>
+
                 <div class="footer-col-2">
                     <img src="../images/newlogo-black.png">
                     <p>Our Purpose Is To Sustainably Make the Pleasure and Benefits of Reading Accessible to Everyone</p>
@@ -179,7 +190,7 @@ include("../settings/core.php");
                 </div>
             </div>
             <hr>
-            <p class="copyright">Copyright 2022 - Arctic Books. Powered by Nirdteq Enterprise</p>
+            <p class="copyright">Copyright 2022 - Booktique Ghana</p>
         </div>
     </div>
 
