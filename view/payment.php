@@ -122,7 +122,7 @@ $grandtotal1 = $grandtotal['SUM(products.product_price*cart.qty)'];
             event.preventDefault();
 
             let handler = PaystackPop.setup({
-                key: 'pk_test_79ebc141ac59b8db6b7c30a1a8cb72c3030a4e4f',
+                key: 'pk_live_bd5356607a881f3a0d6843b75d3172b74b9675cd',
                 email: document.getElementById("email").value,
                 amount: document.getElementById("amt").value * 100,
                 ref: '' + Math.floor((Math.random() * 1000000000) + 1),
